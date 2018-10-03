@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+    <div class="loginbox">
+        <img class="avatar" src="/css/logo.png"/>  
+       
+        <!----Patient Resister form---->
+
+        <h4>Patient Registeration</h4><br>
+       <form class="form-register" onsubmit="validate(this)" method="POST" action = "/patient_id" enctype="multipart/form-data">                        
+           <!----First Name--->    
+             <!----Take a Picture--->
+                <input type="file" accept="image/*" name="filetoupload" placeholder="photoid" id="file" class="inputfile" capture="camera">
+                <label for="file">Upload Photo ID</label>
+		<span id="message"></span><br>
+
+		
+             <!---Register Button---->
+           
+              <input type="submit" value = "Register">
+    </form>
+        </div>                        
+  
+    <!---------- JavaScript----->
+  <script src="/js/jquery.min.js"></script>
+	<script  type="text/javascript">
+
+        function validate(form){
+	var phoneNumber = form.querySelector('[name=mobile]');
+	var firstname = form.querySelector('[name=fName]');
+	var lastname = form.querySelector('[name=lName]');
+        var  upload = form.querySelector('[name=filetoupload]');
+	var  upload2 = form.querySelector('[name=filetoupload2]');
+
+	var FNameReg = /^[a-zA-Z\s]+$/;
+	var LNameReg = /^[a-zA-Z\s]+$/;
+	var PhoneReg = /4[\d]{8}/g;
+
+       if(document.getElementById('fname').value == "" && document.getElementById('lname').value == "" && document.getElementById('phone').value == "" && document.getElementById("file").files.length == 0 && document.getElementById("file2").files.length == 0){
+       event.preventDefault();
+       document.getElementById('fmess').innerHTML = "* First Name must not be blank";
+       document.getElementById('lmess').innerHTML = "* Last Name must not be blank"; 
+       document.getElementById('mess').innerHTML = "* Mobile No. must not be blank";
+       document.getElementById('message').innerHTML = "* Please upload your Picture to Register";
+	   document.getElementById('message2').innerHTML = "* Please upload your Photo Identification To Register";
+	return false;
+        }else{
+	document.getElementById('fmess').innerHTML = "";
+        document.getElementById('lmess').innerHTML = "";
+	document.getElementById('mess').innerHTML = "";
+	document.getElementById('message').innerHTML = ""; 
+	document.getElementById('message2').innerHTML = ""; 
+	}
+
+       if(document.getElementById('fname').value == ""){
+       event.preventDefault();
+       document.getElementById('fmess').innerHTML = "* First Name must not be blank"; 
+	return false;
+        }else{
+	document.getElementById('fmess').innerHTML = "";
+	}
+
+       if(FNameReg.test(firstname.value) == false){
+       event.preventDefault();
+       document.getElementById('fmess').innerHTML = "* Enter First Name correctly"; 
+	return false;
+        }else{
+	document.getElementById('fmess').innerHTML = "";
+	}
+
+        if(document.getElementById('lname').value == ""){
+        event.preventDefault();
+	document.getElementById('lmess').innerHTML = "* Last Name must not be blank"; 
+	return false;
+        }else{
+        document.getElementById('lmess').innerHTML = "";
+	}
+        
+        if(LNameReg.test(lastname.value) == false){
+        event.preventDefault();
+	document.getElementById('lmess').innerHTML = "* Enter Last Name correctly"; 
+	return false;
+        }else{
+        document.getElementById('lmess').innerHTML = "";
+	}
+
+        if(document.getElementById('phone').value == ""){
+        event.preventDefault();
+	document.getElementById('mess').innerHTML = "* Mobile No. must not be blank"; 
+	return false;
+        }else{
+	document.getElementById('mess').innerHTML = "";
+	}
+
+        if(PhoneReg.test(phoneNumber.value) == false){
+        event.preventDefault();
+	document.getElementById('mess').innerHTML = "* Enter Mobile No. correctly"; 
+	return false;
+        }else{
+	document.getElementById('mess').innerHTML = "";
+	}
+	
+        if( document.getElementById("file").files.length == 0 ){
+        event.preventDefault();
+        document.getElementById('message').innerHTML = "* Please upload your Picture to Register"; 
+        }else{
+	document.getElementById('message').innerHTML = ""; 
+	}
+	   /*     if( document.getElementById("file2").files.length == 0 ){
+        event.preventDefault();
+        document.getElementById('message2').innerHTML = "* P lease upload your Photo Identification To Register"; 
+        }else{
+	document.getElementById('message2').innerHTML = ""; 
+	}*/
+
+   }
+    </script>
+    <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>

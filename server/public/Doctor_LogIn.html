@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html >
+<body>
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="../Client/css/bootstrap.min.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="style.css">
+    
+    </head>
+    <body>
+    
+<div class="loginbox">  
+<img class="avatar" src="/css/logo.png"/> 
+                
+    
+    <!------Log In Form------>
+    
+    <h4> Doctor Log In</h4><br>
+    <form class="form-register" onsubmit="validate(this)" method="POST" action = "/process_post">
+        
+        <!-----Email------->
+        <p>Email</p> 
+    <input type="email" id="email" name="email" ><br>
+        <span id="emess"></span><br>
+    
+        
+        
+    <!--------Password--------->
+        <p>Password</p> 
+        <input type="password" id="password" name="password"><br>
+        <span id="pmess"></span><br>
+        
+    
+   
+     <input type="submit" value = "LogIn">
+    </form>
+        </div>              
+  
+       <!---------- JavaScript----->
+  <script src="../Client/js/jquery.min.js"></script>
+    <script src="../Client/js/bootstrap.min.js"></script>
+        <script  type="text/javascript">
+    var email = form.querySelector('[name=email]');
+	var password = form.querySelector('[name=password]');
+            
+            if(document.getElementById('email').value == "" && document.getElementById('password').value == 0){
+       event.preventDefault();
+       document.getElementById('emess').innerHTML = "* Email  must not be blank";
+       document.getElementById('pmess').innerHTML = "* Password must not be blank"; 
+       
+	return false;
+        }else{
+	document.getElementById('emess').innerHTML = "";
+        document.getElementById('pmess').innerHTML = "";
+	
+	}
+            
+    if(document.getElementById('email').value == ""){
+       event.preventDefault();
+       document.getElementById('emess').innerHTML = "* Email must not be blank"; 
+	return false;
+        }else{
+	document.getElementById('emess').innerHTML = "";
+            }
+            
+            
+            if(document.getElementById('password').value == ""){
+        event.preventDefault();
+	document.getElementById('pmess').innerHTML = "* Password must not be blank"; 
+	return false;
+        }else{
+        document.getElementById('lmess').innerHTML = "";
+	}
+    
+    </body>
+    </html>

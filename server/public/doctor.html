@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+    <body>
+        
+        <div class="loginbox">
+        <img class="avatar" src="/css/logo.png"/> 
+                
+        <!----DOCTOR Upload Pdf Form---->        
+        <h4> Doctor Portal</h4><br>
+        <form class="form-register" method="POST" onsubmit="validate(this)" action = "/doc_fileupload" enctype="multipart/form-data"">
+            
+    
+             <!----Phone Number--->
+             
+            
+            <p>Mobile No:+61</p>
+                <input id = "phone" type ="text" name="mobile" placeholder="491570156" maxlength="9">
+            <span id="mess"></span><br>
+		
+            
+
+
+           <!---Upload PDF--->
+            
+            
+            <p>Upload Report</p>
+                <input type="file" id="file" name="filetoupload" placeholder="photoid" id="file" class="inputfile" capture="camera">
+                <label for="file">Upload Report</label>
+		<span id="message"></span><br>
+
+ 
+	  
+    <!---Send Button---->
+           <input type="submit" value = "Send Report">
+                </form>
+            </div>
+            
+  
+    <!---------- JavaScript----->
+  <script src="/js/jquery.min.js"></script>
+
+  <script  type="text/javascript">
+
+	function validate(form){
+	var  phoneNumber = form.querySelector('[name=mobile]');
+	var  upload = form.querySelector('[name=filetoupload]');
+	var Reg = /4[\d]{8}/g;
+
+        if( document.getElementById("file").files.length == 0 ){
+        event.preventDefault();
+        document.getElementById('file').setAttribute("style","background-color:red;color: white");
+        upload.focus();
+        document.getElementById('message').innerHTML = "Please Attach File"; 
+        }else{
+	document.getElementById('file').setAttribute("style","background-color:white;color: black");
+	document.getElementById('message').innerHTML = ""; 
+	}
+
+        if(Reg.test(phoneNumber.value) == false || document.form.mobile.value == ""){
+        event.preventDefault();
+        document.getElementById('phone').setAttribute("style","background-color:red;color: white");
+        phoneNumber.focus();
+	document.getElementById('mess').innerHTML = "Please enter Valid Mobile Number"; 
+	return false;
+        }else{
+	document.getElementById('phone').setAttribute("style","background-color:white;color: black");
+	document.getElementById('mess').innerHTML = ""; 
+	}
+        }
+
+  </script>
+    <script src="/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>

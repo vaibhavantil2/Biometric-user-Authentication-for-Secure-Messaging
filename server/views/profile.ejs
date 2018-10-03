@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Patient Reports</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<header>
+  <div id="logo"><img src="/css/logo.png"/></div>
+</header>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <h1>Records</h1>
+  </div>
+</nav>
+
+    <div>
+	
+	<ul>
+	<% let j = 0;%>
+	 <% for(let i=0;i<print.length;i++) { %>
+              
+		<a href=<%= print[i].FilePath %>><li>
+                 <p>Report <%= j= j+1; %> <p>
+		 <h5><%= print[i].Timestamp %><h3>
+		 </li></a>
+         <% } %>
+	</ul>
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+    <div class="loginbox">
+        <img class="avatar" src="/css/logo.png"/>  
+       
+        <!----Patient Resister form---->
+
+        <h4>Patient Registeration</h4><br>
+       <form class="form-register" onsubmit="validate(this)" method="POST" action = "/receptionist_reg" enctype="multipart/form-data">                        
+         
+             <!----Phone Number--->
+            
+                <p>Mobile No:+61</p>
+                <input type ="text" id="phone" name="mobile" maxlength="9" placeholder="491570156"><br>
+                <span id="mess"></span><br>
+	    
+             <!---Register Button---->
+           
+              <input type="submit" value = "Register">
+    </form>
+        </div>                        
+  
+    <!---------- JavaScript----->
+  <script src="/js/jquery.min.js"></script>
+	<script  type="text/javascript">
+
+        function validate(form){
+	var phoneNumber = form.querySelector('[name=mobile]');
+	var PhoneReg = /4[\d]{8}/g;
+
+        if(document.getElementById('phone').value == ""){
+        event.preventDefault();
+	document.getElementById('mess').innerHTML = "* Mobile No. must not be blank"; 
+	return false;
+        }else{
+	document.getElementById('mess').innerHTML = "";
+	}
+
+        if(PhoneReg.test(phoneNumber.value) == false){
+        event.preventDefault();
+	document.getElementById('mess').innerHTML = "* Enter Mobile No. correctly"; 
+	return false;
+        }else{
+	document.getElementById('mess').innerHTML = "";
+	}
+	
+   }
+    </script>
+    <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+    <body>
+
+        <div class="loginbox">
+        <img class="avatar" src="/css/logo.png"/>  
+       
+
+ <!------Verification------>
+    <h4> Verification</h4><br>
+            
+         <form class="form-register" method="POST" onsubmit="validate(this)" action = "/verification"  enctype="multipart/form-data">
+    
+ <!---Image File--->
+            
+<input type="file" accept="image/*" id="file" name="filetoupload" placeholder="photoid" id="file" class="inputfile" capture="camera">
+<label for="file">Take a Picture</label>
+		<span id="message"></span><br>
+
+ 
+	  
+    <!---Register Button---->
+           <input type="submit" value = "Verify">
+    </form>
+        </div>           
+            
+  
+    <!---------- JavaScript----->
+  <script src="/js/jquery.min.js"></script>
+<script  type="text/javascript">
+
+	function validate(form){
+	
+	var  upload = form.querySelector('[name=filetoupload]');
+	
+        if( document.getElementById("file").files.length == 0 ){
+        event.preventDefault();
+        document.getElementById('file').setAttribute("style","background-color:red;color: white");
+        upload.focus();
+        document.getElementById('message').innerHTML = "Photo is Required"; 
+        }else{
+	document.getElementById('file').setAttribute("style","background-color:white;color: black");
+        document.getElementById('message').innerHTML = ""; 
+	}
+        }
+
+  </script>
+
+    <script src="/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>

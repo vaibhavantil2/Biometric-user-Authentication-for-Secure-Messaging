@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html >
+<body>
+<head>
+  <meta charset="UTF-8">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="../Client/css/bootstrap.min.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    <body>
+        
+        <div class="loginbox">
+        <img class="avatar" src="/css/logo.png"/>
+            
+                <div>
+        <!-- Doctor Registration  form---->        
+        <h4> Doctor Registeration</h4><br>
+            <form class="form-register" onsubmit="validate(this)" method="POST" action = "/process_post">  
+                
+            <!----Name--->    
+            <p> Full Name</p>
+                <input type ="text" id="name" name="Name"/><br>
+                <span id="nmess"></span><br>
+            
+             
+            
+            <!----Email---> 
+            
+          <p>Email</p> 
+    <input type="text" id="email" name="email" ><br>
+        <span id="emess"></span><br>
+    
+            
+             <!----Password--->
+            
+            <p>Password</p> 
+        <input type="password" id="password" name="password"><br>
+        <span id="pmess"></span><br>
+        
+            
+            
+            <!----Confirm Password--->
+
+            <p>Confirm Password</p> 
+        <input type="password" id="cpassword" name="cpassword"><br>
+        <span id="pcmess"></span><br>
+        
+            
+            <!---Check Box----->
+            <div class="form-row">
+           <label class="form-checkbox">
+               <input type ="checkbox" name="checkbox" checked>
+               <span>
+                   "I agree to the terms and Conditions"
+               </span>
+            </label>
+            </div>
+                
+	  
+    <!---Register Button---->
+           <input type="submit" value = "Register">
+    </form>
+        </div>
+                  <!---------- JavaScript----->
+  <script src="../Client/js/jquery.min.js"></script>
+    <script src="../Client/js/bootstrap.min.js"></script>
+            <script  type="text/javascript">
+                function validate(form){
+	var fullName = form.querySelector('[name=Name]');
+	var email = form.querySelector('[name=email]');
+	var password = form.querySelector('[name=password]');
+        var  cpassword = form.querySelector('[name=cpassword]');
+
+	var NameReg = /^[a-zA-Z\s]+$/;
+	
+	
+
+       if(document.getElementById('name').value == 0){
+       event.preventDefault();
+       document.getElementById('name').innerHTML = "* Full Name must not be blank";
+       document.getElementById('email').innerHTML = "* email must not be blank"; 
+       document.getElementById('password').innerHTML = "* password must not be blank";
+       document.getElementById('cpassword').innerHTML = "* Confirm password";
+	return false;
+        }else{
+	document.getElementById('name').innerHTML = "";
+        document.getElementById('email').innerHTML = "";
+	document.getElementById('password').innerHTML = "";
+	document.getElementById('cpassword').innerHTML = ""; 
+	}
+                    
+                    
+    if(document.getElementById('name').value == ""){
+       event.preventDefault();
+       document.getElementById('nmess').innerHTML = "* Full Name must not be blank"; 
+	return false;
+        }else{
+	document.getElementById('nmess').innerHTML = "";
+	}
+
+       if(FNameReg.test(firstname.value) == false){
+       event.preventDefault();
+       document.getElementById('nmess').innerHTML = "* Enter Full Name correctly"; 
+	return false;
+        }else{
+	document.getElementById('fmess').innerHTML = "";
+	}
+
+            
+    </head>
+    </body>
+</html>
